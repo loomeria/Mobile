@@ -1,38 +1,36 @@
-import { StyleSheet } from 'react-native';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ScrollView, StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function MessageScreen() {
 	return (
-		<ParallaxScrollView
-			headerBackgroundColor={ {light: '#D0D0D0', dark: '#353636'} }
-			headerImage={
-				<IconSymbol
-					size={ 310 }
-					color="#808080"
-					name="chevron.left.forwardslash.chevron.right"
-					style={ styles.headerImage }
-				/>
-			}>
-			<ThemedView style={ styles.titleContainer }>
-				<ThemedText type="title">Messages</ThemedText>
-			</ThemedView>
-			<ThemedText>This app includes example code to help you get started.</ThemedText>
-		</ParallaxScrollView>
+		<SafeAreaProvider>
+			<SafeAreaView style={ styles.container } edges={ ['top'] }>
+				<ScrollView style={ styles.scrollView }>
+					<ThemedView style={ styles.titleContainer }>
+						<ThemedText type="title">Message</ThemedText>
+					</ThemedView>
+				</ScrollView>
+			</SafeAreaView>
+		</SafeAreaProvider>
 	);
 }
 
 const styles = StyleSheet.create({
-	headerImage: {
-		color: '#808080',
-		bottom: -90,
-		left: -35,
-		position: 'absolute',
-	},
 	titleContainer: {
 		flexDirection: 'row',
 		gap: 8,
+		margin: 20,
+	},
+	container: {
+		flex: 1,
+	},
+	scrollView: {
+		backgroundColor: 'white',
+	},
+	text: {
+		fontSize: 42,
+		padding: 12,
 	},
 });

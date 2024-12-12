@@ -7,8 +7,6 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import type { Theme } from '@react-navigation/native/src/types';
-import { fonts } from '@react-navigation/native/src/theming/fonts';
 import { DarkThemeCustom, DefaultThemeCustom } from '@/constants/Colors';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
